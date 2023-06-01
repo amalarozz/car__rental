@@ -73,7 +73,31 @@
 									</div>
 									</a>
 
-                                   
+                                    <a href="{% url 'unreadQuery' %}">
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-body bk-success text-light">
+													<div class="stat-panel text-center">
+														<div class="stat-panel-number h1 ">{{totalunread}}</div>
+														<div class="stat-panel-title text-uppercase">Unread Queries</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										</a>
+	
+										<a href="{% url 'readQuery' %}">
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-body bk-success text-light">
+													<div class="stat-panel text-center">
+														<div class="stat-panel-number h1 ">{{totalread}}</div>
+														<div class="stat-panel-title text-uppercase">Read Queries</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										</a>
 
                                 
 

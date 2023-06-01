@@ -47,7 +47,32 @@
                 <span class="icon-bar"></span>
             </a>
 
-            
+            <div class="container">
+                <div class="dropdown">
+                    <a href="" class="float-right text-white pr-3 dropdown-toggle" id="menu1"
+                       data-toggle="dropdown"><span
+                            class="badge badge-danger">{% notificationcount %}</span><i class="fa fa-bell fa-2x"> </i>
+
+                    </a>
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu bg-light text-danger">
+                        <li class="text-secondary" style="text-align : center">New Bookings</li>
+                        {% for i in ""|notification %}
+                        <a href="{% url 'viewBooking' i.id %}">
+                            <li style="padding:10px; color: red;">{{i.name}} <span class="text-muted">
+                                        <em>{{i.requestdate}}</em>
+                                    </span></li>
+                        </a>
+                        {% empty %}
+                        <li style="text-align : center">No Records Found</li>
+                        {% endfor %}
+
+                        <li style="padding:10px"><a href="{% url 'newBooking' %}" class="btn btn-primary"
+                                                    style="width:100%">View
+                            All</a></li>
+                    </ul>
+                </div>
+            </div>
             <script>
                 $(document).ready(function(){
                 $(".dropdown-toggle").dropdown();
@@ -145,6 +170,18 @@
                 <li>
                     <a href="{% url 'regUser' %}">
                         <i class="fa fa-cab"></i> <span>Reg Users</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'search' %}">
+                        <i class="fa fa-search"></i> <span>Search</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'betweendateReport' %}">
+                        <i class="fa fa-file-o"></i> <span>Between Date Report</span>
                     </a>
                 </li>
 
